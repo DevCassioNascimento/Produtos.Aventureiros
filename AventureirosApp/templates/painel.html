@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Usuário</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-container a {
+            display: block;
+            margin: 10px 0;
+            padding: 12px;
+            background-color: #113346;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container a:hover {
+            background-color: #0d2a39;
+        }
+
+        .form-container p {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Bem-vindo, {{ user.username }}!</h2>
+        <p>O que você deseja fazer?</p>
+
+        <a href="{% url 'cadastrar_produto' %}">Cadastrar novo produto</a>
+        <a href="{% url 'produtos' %}">Ver produtos cadastrados</a>
+        <a href="{% url 'logout' %}">Sair</a>
+    </div>
+</body>
+</html>

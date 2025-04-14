@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos Cadastrados</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #113346;
+            margin-bottom: 30px;
+        }
+
+        .produto {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .produto:last-child {
+            border-bottom: none;
+        }
+
+        .info {
+            flex: 1;
+        }
+
+        .info h3 {
+            margin: 0;
+            color: #113346;
+        }
+
+        .info p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .preco {
+            font-weight: bold;
+            color: #F7A637;
+            font-size: 18px;
+        }
+
+        .voltar {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            text-decoration: none;
+            color: #113346;
+            font-weight: bold;
+            border: 1px solid #113346;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .voltar:hover {
+            background-color: #113346;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Produtos Cadastrados</h2>
+
+        {% if produtos %}
+            {% for produto in produtos %}
+                <div class="produto">
+                    <div class="info">
+                        <h3>{{ produto.nome }}</h3>
+                        <p>{{ produto.descricao }}</p>
+                    </div>
+                    <div class="preco">
+                        R$ {{ produto.preco }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p style="text-align: center; color: #777;">Nenhum produto cadastrado ainda.</p>
+        {% endif %}
+
+        <a href="{% url 'painel' %}" class="voltar">Voltar ao Painel</a>
+    </div>
+</body>
+</html>
